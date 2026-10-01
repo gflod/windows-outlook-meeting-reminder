@@ -31,7 +31,7 @@ from meeting_reminder import assets
 log = logging.getLogger(__name__)
 
 FONT_FAMILY = "Quicksand"
-FONT_WEIGHT = QFont.Weight.Light
+FONT_WEIGHT = QFont.Weight.Medium
 FONT_PIXEL_SIZE = 28
 TEXT_PAD_X = 50
 TEXT_PAD_Y = 22
