@@ -10,6 +10,10 @@ Reads from your Mac's Calendar.app (so iCloud, Google, Exchange — anything
 you've connected — all work). Native SwiftUI · lives in the Dock **and** menu
 bar · floats above fullscreen apps.
 
+> **On Windows?** There's a Windows version in [`windows/`](windows/README.md).
+> It runs in the system tray, reads your calendar from classic Outlook (Teams
+> meetings included), and flies the same airplane across every monitor.
+
 ---
 
 ## Requirements
