@@ -30,7 +30,8 @@ from meeting_reminder import assets
 
 log = logging.getLogger(__name__)
 
-FONT_FAMILY = "Comic Sans MS"
+FONT_FAMILY = "Quicksand"
+FONT_WEIGHT = QFont.Weight.Light
 FONT_PIXEL_SIZE = 28
 TEXT_PAD_X = 50
 TEXT_PAD_Y = 22
@@ -55,6 +56,7 @@ _CLICK_THROUGH_EX = (
 def render_banner(text: str, device_pixel_ratio: float) -> QPixmap:
     """Draw banner + plane once into a transparent pixmap."""
     font = QFont(FONT_FAMILY)
+    font.setWeight(FONT_WEIGHT)
     font.setPixelSize(FONT_PIXEL_SIZE)
     metrics = QFontMetrics(font)
     banner_w = metrics.horizontalAdvance(text) + 2 * TEXT_PAD_X
