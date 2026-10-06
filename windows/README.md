@@ -81,7 +81,8 @@ Outlook is open.
   once per meeting, about 5 minutes before it starts.
 - Each occurrence of a recurring meeting gets its own alert.
 - All-day events and cancelled meetings never trigger it.
-- Plays on every monitor. Mouse clicks pass through the airplane, so it never
+- Plays on your main display only (the one set as "main display" in Windows
+  Display settings). Mouse clicks pass through the airplane, so it never
   gets in your way.
 - Shows on top of normal and borderless-fullscreen windows. It won't appear
   over exclusive-fullscreen games.

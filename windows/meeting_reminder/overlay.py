@@ -1,4 +1,4 @@
-"""The flying airplane: one transparent, click-through window per screen."""
+"""The flying airplane: a transparent, click-through window on the main display."""
 
 from __future__ import annotations
 
@@ -161,19 +161,22 @@ class AirplaneWindow(QWidget):
 
 
 class AirplaneOverlay:
-    """Spawns and keeps alive one AirplaneWindow per connected screen."""
+    """Spawns and keeps alive the AirplaneWindow on the primary screen."""
 
     def __init__(self) -> None:
         self._windows: list[AirplaneWindow] = []
 
     def show(self, text: str, duration_s: float) -> None:
-        """Fly ``text`` across every screen over ``duration_s`` seconds."""
-        for screen in QGuiApplication.screens():
-            window = AirplaneWindow(screen, text, duration_s)
-            window.destroyed.connect(lambda _=None, w=window: self._forget(w))
-            self._windows.append(window)
-            window.launch()
-        log.debug("Airplane launched on %d screen(s)", len(QGuiApplication.screens()))
+        """Fly ``text`` across the primary screen over ``duration_s`` seconds."""
+        screen = QGuiApplication.primaryScreen()
+        if screen is None:
+            log.warning("No primary screen; airplane not shown")
+            return
+        window = AirplaneWindow(screen, text, duration_s)
+        window.destroyed.connect(lambda _=None, w=window: self._forget(w))
+        self._windows.append(window)
+        window.launch()
+        log.debug("Airplane launched on primary screen %s", screen.name())
 
     def _forget(self, window: AirplaneWindow) -> None:
         self._windows = [w for w in self._windows if w is not window]
