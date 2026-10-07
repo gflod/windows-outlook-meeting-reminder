@@ -1,0 +1,11 @@
+name: meetingreminder
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pyside6
+  - pywin32
+  - pytest
+  - ruff
+  - black
+  - isort
